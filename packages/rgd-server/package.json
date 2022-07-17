@@ -1,8 +1,10 @@
 {
   "name": "rgd-server",
-  "version": "0.0.1",
-  "main": "index.ts",
-  "license": "MIT",
+  "packageManager": "yarn@3.2.1",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "ts-node ./server.ts"
   },

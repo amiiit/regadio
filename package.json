@@ -1,10 +1,11 @@
 {
   "name": "regadio",
+  "packageManager": "yarn@3.2.1",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "server": "yarn --cwd packages/rgd-server dev",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
