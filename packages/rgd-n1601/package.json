@@ -1,0 +1,27 @@
+{
+  "name": "rgd-n1601",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "scripts": {
+    "run": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^28.1.5",
+    "@types/node-fetch": "^2.6.2",
+    "commander": "^9.4.0",
+    "jest": "^28.1.3",
+    "jsdom": "^20.0.0",
+    "node-fetch": "^2.6.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^16.2.14",
+    "@types/node": "^18.0.4",
+    "ts-jest": "^28.0.6"
+  }
+}
