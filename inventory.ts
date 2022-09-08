@@ -1,9 +1,10 @@
-export default {
-	"switches": {
-		"1": "pump",
-		"15": "cucumbers/tent"
-	},
-	"controller": {
-		"url": "http://192.168.0.32/30000"
-	}
+type GPIO = string
+type Inventory = {
+	[name: string]: number
 }
+const inventory: Inventory = {
+	"pump": 23,
+	"rainbow": 24,
+}
+
+export default inventory
