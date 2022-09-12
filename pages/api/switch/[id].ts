@@ -5,7 +5,7 @@ import {Gpio} from "onoff";
 const handle = async (req, res) => {
 	console.log('state', gpioState)
 	if (req.method === 'PUT') {
-		const sw = req.params.switchId
+		const sw = req.url.params.id
 		const state = req.body.state
 		if (typeof state !== 'boolean') {
 			res.status(400)
