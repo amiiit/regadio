@@ -10,6 +10,7 @@ const gpioState: State = {}
 Object.keys(inventory).forEach(iKey => {
 	// Relay controller is ON on LOW. Initializing with HIGH so it starts as OFF.
 	gpioState[iKey] = new Gpio(inventory[iKey], "high")
+	console.log('setting up', iKey, inventory[iKey])
 })
 
 export { gpioState }
