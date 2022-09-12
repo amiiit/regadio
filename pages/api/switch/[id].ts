@@ -1,7 +1,9 @@
-import inventory from "../../../inventory";
-import {set} from "../../../nc-1601/set";
+// import inventory from "../../../inventory";
+import {gpioState} from "../../../gpio";
+import {Gpio} from "onoff";
 
 const handle = async (req, res) => {
+	console.log('state', gpioState)
 	if (req.method === 'PUT') {
 		const sw = req.params.switchId
 		const state = req.body.state
@@ -11,14 +13,14 @@ const handle = async (req, res) => {
 			return
 		}
 
-		if (!inventory.switches[sw as keyof typeof inventory.switches]) {
+		if (!state) {
 			res.status(404)
 			res.send(`switch ${sw} does not exist`)
 			return
 		}
 
 		try {
-			await set(inventory.controller.url, parseInt(sw), state)
+			gpioState[sw].write(state ? Gpio.HIGH : Gpio.LOW)
 		} catch (err) {
 			res.status(500)
 			res.send(`setting switch ${sw} failed: ${(err as Error).message}`)
