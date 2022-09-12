@@ -28,8 +28,10 @@ const handle = async (req, res) => {
 		}
 
 		res.status(200)
+		res.send('ok')
 	} else {
 		res.status(400)
+		res.send('bad request')
 	}
 }
 
