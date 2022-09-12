@@ -27,9 +27,9 @@ const handle = async (req, res) => {
 			return
 		}
 
-		res.sendStatus(200)
+		res.status(200)
 	} else {
-		res.sendStatus(400)
+		res.status(400)
 	}
 }
 
