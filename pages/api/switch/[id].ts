@@ -29,7 +29,7 @@ const handle = async (req, res) => {
 
 		res.sendStatus(200)
 	} else {
-		res.status(400).text('method not supported')
+		res.sendStatus(400)
 	}
 }
 
