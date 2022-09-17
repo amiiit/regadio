@@ -13,4 +13,6 @@ Object.keys(inventory).forEach(iKey => {
 	console.log('setting up', iKey, inventory[iKey])
 })
 
-export { gpioState }
+const getState = () => Object.keys(inventory).map(iKey => Boolean(gpioState[iKey].readSync()))
+
+export {gpioState, getState}
