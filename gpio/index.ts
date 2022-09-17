@@ -9,7 +9,7 @@ const gpioState: State = {}
 type ReadableState = {
 	[name: string]: {
 		name: string,
-		state: 'on' | 'off',
+		userState: 'on' | 'off',
 		lowLevelValue: BinaryValue,
 		gpio: number
 	}
@@ -32,7 +32,7 @@ const getState = () => {
 			name: iKey,
 			// Switch board is low-based
 			lowLevelValue,
-			state: lowLevelValue === Gpio.HIGH ? 'off' : 'on',
+			userState: lowLevelValue === Gpio.HIGH ? 'off' : 'on',
 			gpio: inventory[iKey]
 		}
 
