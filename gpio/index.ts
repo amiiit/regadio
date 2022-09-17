@@ -1,4 +1,4 @@
-import {Gpio} from 'onoff';
+import {BinaryValue, Gpio} from 'onoff';
 import inventory from "../inventory";
 
 type State = {
@@ -10,6 +10,7 @@ type ReadableState = {
 	[name: string]: {
 		name: string,
 		state: 'on' | 'off',
+		lowLevelValue: BinaryValue,
 		gpio: number
 	}
 }
@@ -25,11 +26,13 @@ const getState = () => {
 	Object.keys(inventory).forEach(iKey => {
 		console.log('get state for ', iKey)
 		const keyState = gpioState[iKey].readSync()
+		const lowLevelValue = gpioState[iKey].readSync()
 		console.log('keyState', keyState)
 		result[iKey] = {
 			name: iKey,
 			// Switch board is low-based
-			state: gpioState[iKey].readSync() === Gpio.HIGH ? 'off' : 'on',
+			lowLevelValue,
+			state: lowLevelValue === Gpio.HIGH ? 'off' : 'on',
 			gpio: inventory[iKey]
 		}
 
