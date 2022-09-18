@@ -4,14 +4,14 @@ const isDev = process.env.NODE_ENV === 'development'
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
-    async rewrites() {
-        return isDev ? {
+    rewrites: isDev ? async () => {
+        return {
             beforeFiles: [{
                 source: '/api/:path*',
                 destination: 'https://agua.quepasaorgiva.com/api/:path*'
             }]
-        } : null
-    }
+        }
+    } : undefined
 }
 
 module.exports = nextConfig
