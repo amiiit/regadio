@@ -7,7 +7,9 @@ const handle = async (req: NextApiRequest, res: NextApiResponse) => {
 	if (req.method === 'PUT') {
 		const sw = req.query.id as string
 		console.log('req.body', req.body)
-		const stateToSet = req.body.state as UserState
+
+		const body = JSON.parse(req.body)
+		const stateToSet = body.state as UserState
 
 		if (['on', 'off'].includes(stateToSet)) {
 			res.status(400)
