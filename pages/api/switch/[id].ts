@@ -13,7 +13,7 @@ const handle = async (req: NextApiRequest, res: NextApiResponse) => {
 
 		if (['on', 'off'].includes(stateToSet)) {
 			res.status(400)
-			res.send(`state must be either 'on' or 'off', provided ${stateToSet}`)
+			res.send(`state must be either 'on' or 'off', provided '${stateToSet}'`)
 			return
 		}
 
