@@ -10,6 +10,7 @@
     "gpio": "ts-node gpio.js"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.3.4",
     "jsdom": "^20.0.0",
     "next": "12.2.5",
     "node-fetch": "^3.2.10",
