@@ -29,7 +29,9 @@ export const setUserStateForSwitch = (name: string, state: UserState) => {
 	if (!gpio) {
 		throw `GPIO does not exist for '${name}'`
 	}
-	gpio.writeSync(state === 'on' ? 0 : 1)
+	const rawValueToSet = state === 'on' ? 0 : 1
+	console.log(`gpio ${name}, set to ${rawValueToSet}`)
+	gpio.writeSync(rawValueToSet)
 	return getStateForSwitch(name)
 }
 
