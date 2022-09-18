@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.APP_ENV === 'development'
 
 const nextConfig = {
     reactStrictMode: true,
