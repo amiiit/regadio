@@ -1,10 +1,11 @@
 import {getStateForSwitch, gpioState, setUserStateForSwitch, UserState} from "../../../gpio";
 import {Gpio} from "onoff";
+import {NextApiRequest, NextApiResponse} from "next";
 
-const handle = async (req, res) => {
+const handle = async (req: NextApiRequest, res: NextApiResponse) => {
 	console.log('state', gpioState)
 	if (req.method === 'PUT') {
-		const sw = req.url.params.id
+		const sw = req.query.id
 		const stateToSet = req.body.state as UserState
 
 		if (['on', 'off'].includes(stateToSet)) {

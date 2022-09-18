@@ -28,7 +28,10 @@ export const useSetSwitch = () => {
 
 	return useMutation<SwitchState, Error, UserSetSwitchVariables>([], (variables) => {
 		return fetch(`/api/switch/${variables.name}`, {
-			state: variables.state
+			method: 'put',
+			body: {
+				state: variables.state
+			}
 		})
 	}, {
 		onSuccess: (data, variables, context) => {
