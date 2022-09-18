@@ -27,11 +27,11 @@ export const useSetSwitch = () => {
 	const client = useQueryClient()
 
 	return useMutation<SwitchState, Error, UserSetSwitchVariables>([], (variables) => {
+		const data = new FormData()
+		data.set('state', variables.state)
 		return fetch(`/api/switch/${variables.name}`, {
 			method: 'put',
-			body: {
-				state: variables.state
-			}
+			body: data
 		})
 	}, {
 		onSuccess: (data, variables, context) => {
