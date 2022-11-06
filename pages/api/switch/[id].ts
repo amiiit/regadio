@@ -10,7 +10,7 @@ const handle = async (req: NextApiRequest, res: NextApiResponse) => {
 		const body = JSON.parse(req.body)
 		console.log('body', body)
 		const stateToSet = body.state as UserState
-
+		console.log('stateToSet', stateToSet)
 		if (['on', 'off'].includes(stateToSet)) {
 			res.status(400)
 			res.send(`state must be either 'on' or 'off', provided '${stateToSet}'`)
